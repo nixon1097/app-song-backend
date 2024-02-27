@@ -31,6 +31,13 @@ test("GET -> 'URL_ARTIST', should return status code 200, and res.body to be def
      expect(res.body).toBeDefined()
      expect(res.body.length).toBe(1)
 
+
+     // haciendo el testss incluyendo en el get all el genero 
+  
+
+    expect(res.body[0].genres).toHaveLength(0)
+    expect(res.body[0].genres).toBeDefined()
+
 })
 
 test("GET ONE 'URL_ARTIST/:id', should return code 200,and res.body to be defined and res.body.name= artist.name",async()=>

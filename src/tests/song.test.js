@@ -44,14 +44,26 @@ test("GET -> 'URL_SONG',should return status code 200, and res.body to be define
     expect(res.status).toBe(200)
     expect(res.body).toBeDefined()
     expect(res.body.length).toBe(1)
+
+
+ // haciendo el testss incluyendo en el get all el artista y el genero 
+    expect(res.body[0].artists).toBeDefined()
+    expect(res.body[0].artists).toHaveLength(0)
+
+    expect(res.body[0].genres).toHaveLength(0)
+    expect(res.body[0].genres).toBeDefined()
+
 })
 test("GET -> 'URL_SONG/:id',should return status code 200, and res.body to be defined and res.body.length = 1 ",async()=>{
     const res= await request(app)
     .get(`${URL_SONG}/${songId}`)
+    
 
     expect(res.status).toBe(200)
     expect(res.body).toBeDefined()
     expect(res.body.name).toBe(song.name)
+  
+
 })
 
 
@@ -103,6 +115,9 @@ test("POST -> 'URL_SONG/:id/genres, should return code 200, and res.body to be d
      expect(res.body).toBeDefined()
      expect(res.body).toHaveLength(1)
      expect(res.body[0].id).toBe(genre.id)
+
+    
+     
 
      await genre.destroy()
 })

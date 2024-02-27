@@ -51,6 +51,11 @@ test( "GET -> '/ URL_ALBUM', should return status code 200 , res.body to be defi
      expect(res.body).toBeDefined()
      expect(res.body.length).toBe(1)
 
+      git 
+    expect(res.body[0].artist).toBeDefined()
+    expect(res.body[0].artist.id).toBe(artist.id)
+
+   
 
 })
 test( "GET -> '/ URL_ALBUM/:id', should return status code 200 , res.body to be defined and res.body.name=album.name", async () =>{
